@@ -16,8 +16,8 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t travis_env_var_exercise .
-  - docker tag travis_env_var_exercise YOUR_DOCKER_HUB/travis_env_var_exercise:latest
+  - docker tag travis_env_var_exercise godhoang/travis_env_var_exercise:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push YOUR_DOCKER_HUB/travis_env_var_exercise
+  - docker push godhoang/travis_env_var_exercise
